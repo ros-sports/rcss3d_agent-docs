@@ -7,8 +7,8 @@ Custom ROS2 interfaces are used with no attempt at converting the interfaces to 
 you would probably use to communicate with a real robot. To write a node that matches
 interfaces used by a real robot, see :doc:`rcss3d_agent`
 
-Running
-*******
+Launching a Player
+******************
 
 .. note::
 
