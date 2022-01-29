@@ -3,14 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Nao Soccer Sim
-==============
+Rcss3d Agent
+============
 
 .. image:: images/demo_effector.gif
 
-This project consists of ROS2 packages that allow launching an agent soccer player
-in the SimSpark soccer simulator, and send commands and receive sensory data
-as if you are interacting with a physical NAO robot.
+Rcss3d Agent is a ROS2 package that handles the network connection and parsing/packing of
+data with the SimSpark simulator used in the RoboCup 3D Simulation League. 
 
 The project is hosted on `Github`_ by ROS Sports.
 
@@ -22,4 +21,4 @@ The project is hosted on `Github`_ by ROS Sports.
    rcss3d_agent_basic
    rcss3d_agent
 
-.. _Github: https://github.com/ijnek/naosoccer_sim
+.. _Github: https://github.com/ros-sports/rcss3d_agent

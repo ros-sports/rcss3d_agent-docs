@@ -1,9 +1,9 @@
 # Rcss3d Agent Documentation
 
 This is a repository for maintaining the documentation for ROS2 rcss3d_agent.
-To see the compiled instructions, see our [ReadTheDocs Website](https://naosoccer-sim.readthedocs.io/)
+See the compiled instructions on our [Website](https://rcss3d-agent.readthedocs.io)
 
-## Documentation Maintainer Guide
+## Maintenance Guide
 
 Below is a guide for the maintainers of this documentation.
 
