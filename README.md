@@ -1,6 +1,6 @@
 # Rcss3d Agent Documentation
 
-Repository for maintaining the Sphinx Documentation for ROS2 rcss3d_agent.
+This is a repository for maintaining the documentation for ROS2 rcss3d_agent.
 To see the compiled instructions, see our [ReadTheDocs Website](https://naosoccer-sim.readthedocs.io/)
 
 ## Documentation Maintainer Guide
