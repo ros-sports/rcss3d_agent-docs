@@ -57,7 +57,7 @@ In this example, we will set the velocity of the head yaw to be 1.0. In a new te
 .. code-block:: console
 
   ros2 topic pub --once /effectors/hinge_joint rcss3d_agent_msgs/msg/HingeJointVel "
-  name: 'he2'
+  name: 'he1'
   ax: 1.0
   "
 
