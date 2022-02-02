@@ -12,8 +12,8 @@ the Rcss3d Agent library is likely all that is needed.
 Teams from other leagues such as the humanoid league or SPL, can use the general
 library and provide their own pub/sub implementations to match those used on their robots. 
 
-An example implementation is the `rcss3d_nao`_ package that
-publishes/subscribes using ROS2-released Nao specific messages (`nao_command_msgs`_ and
+An example usage of this library is in the `rcss3d_nao`_ package that
+publishes/subscribes using interfaces specific to the Nao (`nao_command_msgs`_ and
 `nao_sensor_msgs`_), such that a real Nao robot can be substituted out for a simulated one
 seamlessly.
 

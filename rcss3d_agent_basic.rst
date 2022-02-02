@@ -111,31 +111,44 @@ In this example, we will send a msg containing the string "helloworld":
 
   ros2 topic pub --once /effectors/say rcss3d_agent_msgs/msg/Say "message: 'helloworld'"
 
-Topics Used
-***********
+Topics
+******
 
-In a new terminal, run:
+List of topics used by the node.
 
-.. code-block:: console
+Published Topics
+================
 
-  ros2 node info /rcss3d_agent
+* **percept** (*rcss3d_agent_msgs/msg/Percept*)
 
-You will see the topics the node is subscribed to / publishes to, similar to the following:
+Subscribed Topics
+=================
 
-.. code-block:: console
+* **effectors/beam** (*rcss3d_agent_msgs/msg/Beam*)
+* **effectors/hinge_joint** (*rcss3d_agent_msgs/msg/HingeJointVel*)
+* **effectors/say** (*rcss3d_agent_msgs/msg/Say*)
+* **effectors/universal_joint** (*rcss3d_agent_msgs/msg/UniversalJointVel*)
 
-  /rcss3d_agent
-    Subscribers:
-      /effectors/beam: rcss3d_agent_msgs/msg/Beam
-      /effectors/hinge_joint: rcss3d_agent_msgs/msg/HingeJointVel
-      /effectors/say: rcss3d_agent_msgs/msg/Say
-      /effectors/universal_joint: rcss3d_agent_msgs/msg/UniversalJointVel
-      ...
-    Publishers:
-      /percept: rcss3d_agent_msgs/msg/Percept
-      ...
-    ...
+Parameters
+**********
 
+List of parameters for the node.
+
+* **rcss3d/host** (*string*, default="127.0.0.1")
+
+  Host IP Address that simulation server is running on
+    
+* **rcss3d/port** (*int*, default=3100)
+
+  Port number that simulation server is communicating on
+    
+* **team** (*string*, default="Anonymous")
+
+  Team name of robot, to be sent to simulation server
+    
+* **unum** (*int*, default=0)
+
+  Player number of robot, to be sent to simulation server
 
 .. _RoboCup Soccer Simulation running: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Running-a-Simulation
 .. _Beam Effector: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Effectors#beam-effector
