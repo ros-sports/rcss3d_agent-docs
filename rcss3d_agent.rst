@@ -26,8 +26,8 @@ For example, a physical Nao robot accepts joint position commands, but the simul
 velocity commands. Rcss3d Nao implements a joint velocity controller to convert the requested
 joint position to a joint velocity that the simulator accepts.
 
-Declaring Dependency
-********************
+Add as dependency
+*****************
 
 To use the library in your project, you must declare it as a dependency in your package, as
 following:
