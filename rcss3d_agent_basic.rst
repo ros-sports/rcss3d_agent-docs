@@ -16,20 +16,31 @@ you would probably use to communicate with a real robot.
   use the rcss3d_agent library and implement the pub/sub yourself, see :doc:`rcss3d_agent`
   for more information.
 
+Starting the Simulator
+**********************
+
+In a terminal, start the simulator by running:
+
+.. code-block:: console
+
+    rcsoccersim3d
+
+.. tip::
+
+    Simulator tends to crash sometimes when connecting / disconnecting agents, which leaves unwanted
+    server processes lingering. To kill this process, run ``pkill -9 rcssserver3d`` before restarting
+    the simulation server.
+
 Launching a Player
 ******************
 
-.. note::
-
-  Instructions here assume you have `RoboCup Soccer Simulation running`_.
-
-To run rcss3d_agent_basic as a standalone application, run:
+To run rcss3d_agent_basic as a standalone application, in a new terminal, run:
 
 .. code-block:: console
 
   ros2 run rcss3d_agent_basic rcss3d_agent_basic
 
-Moving the simulator camera around with WASD keys and mouse, 
+Moving around the simulator camera with the WASD keys and the mouse, 
 you should see your robot at the corner of the field, as below:
 
 .. image:: images/agent_in_simulator.png
@@ -39,14 +50,14 @@ Beaming the Robot
 *****************
 
 The `Beam Effector`_ allows a player to position itself on the field before the start of each half.
-In this example, we will move the robot to four metres behind and facing the centre circle. The
+In this example, we will move the robot to four metres behind the centre circle, facing it. The
 coordinate of the robot after beamed will be (-4.0, 0.0, 0.0).
 
 In a new terminal, run:
 
 .. code-block:: console
 
-  ros2 topic pub --once /effectors/beam rcss3d_agent_msgs/msg/Beam "
+  ros2 topic pub --once effectors/beam rcss3d_agent_msgs/msg/Beam "
   x: -4.0
   y: 0.0
   rot: 0.0
@@ -60,13 +71,13 @@ Moving a Hinge Joint
 ********************
 
 To send a hinge joint command to the simulated robot, you must publish
-a ``rcss3d_agent_msgs/msg/HingeJointVel`` msg on the ``/effectors/hinge_joint`` topic.
+a ``rcss3d_agent_msgs/msg/HingeJointVel`` msg on the ``effectors/hinge_joint`` topic.
 
 In this example, we will set the velocity of the head yaw to be 1.0. In a new terminal, run:
 
 .. code-block:: console
 
-  ros2 topic pub --once /effectors/hinge_joint rcss3d_agent_msgs/msg/HingeJointVel "
+  ros2 topic pub --once effectors/hinge_joint rcss3d_agent_msgs/msg/HingeJointVel "
   name: 'he1'
   ax: 1.0
   "
@@ -85,14 +96,14 @@ Moving a Universal Joint
 ************************
 
 To send a universal joint command to the simulated robot, you must publish
-a ``rcss3d_agent_msgs/msg/UniversalJointVel`` msg on the ``/effectors/universal_joint`` topic.
+a ``rcss3d_agent_msgs/msg/UniversalJointVel`` msg on the ``effectors/universal_joint`` topic.
 
 The default Nao robot model doesn't have any universal joints. The example below shows how to move
 the universal shoulder joint of SimSpark's `SoccerBot`_:
 
 .. code-block:: console
 
-  ros2 topic pub --once /effectors/hinge_joint rcss3d_agent_msgs/msg/HingeJointVel "
+  ros2 topic pub --once effectors/hinge_joint rcss3d_agent_msgs/msg/HingeJointVel "
   name: 'lae1_2'
   ax1: 1.0
   ax2: -1.0
@@ -109,7 +120,7 @@ In this example, we will send a msg containing the string "helloworld":
 
 .. code-block:: console
 
-  ros2 topic pub --once /effectors/say rcss3d_agent_msgs/msg/Say "message: 'helloworld'"
+  ros2 topic pub --once effectors/say rcss3d_agent_msgs/msg/Say "message: 'helloworld'"
 
 Topics
 ******
@@ -155,7 +166,6 @@ List of parameters for the node.
 
   Player number of robot, to be sent to simulation server
 
-.. _RoboCup Soccer Simulation running: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Running-a-Simulation
 .. _Beam Effector: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Effectors#beam-effector
 .. _Nao model: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Models#equipment
 .. _Soccerbot: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Models#soccerbot
