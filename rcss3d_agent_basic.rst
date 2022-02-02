@@ -134,6 +134,11 @@ Parameters
 
 List of parameters for the node.
 
+* **model** (*string*, default="rsg/agent/nao/nao.rsg")
+
+  The RSG model of the robot, model path must be relative to and inside
+  :code:`/usr/local/share/rcssserver3d/`
+
 * **rcss3d/host** (*string*, default="127.0.0.1")
 
   Host IP Address that simulation server is running on

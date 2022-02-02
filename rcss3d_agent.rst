@@ -57,13 +57,14 @@ is given below:
 .. code-block:: cpp
 
   // Example parameters
-  std::string rcss3d_host = "127.0.0.1";  // IP Address of Simulation Server (default: 127.0.0.1)
-  int rcss3d_port = 3100;                 // Port of Simulation Server (default: 3100)
-  std::string team = "ROS Sports";        // Team name
-  int unum = 3;                           // Player number
+  std::string model = "rsg/agent/nao/nao.rsg" // Rsg robot model relative to /usr/local/share/rcssserver3d/
+  std::string rcss3d_host = "127.0.0.1";      // IP Address of Simulation Server (default: 127.0.0.1)
+  int rcss3d_port = 3100;                     // Port of Simulation Server (default: 3100)
+  std::string team = "ROS Sports";            // Team name
+  int unum = 3;                               // Player number
   
   // Construct rcss3d_agent::Params
-  rcss3d_agent::Params params{rcss3d_host, rcss3d_port, team, unum};
+  rcss3d_agent::Params params{model, rcss3d_host, rcss3d_port, team, unum};
 
   // Construct rcss3d_agent::Rcss3dAgent
   rcss3d_agent::Rcss3dAgent rcss3dAgent{params};
