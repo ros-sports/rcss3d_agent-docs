@@ -4,8 +4,17 @@ Rcss3d Agent Basic
 Rcss3d Agent Basic is a ROS2 Component that can run as a standalone application. The term
 **Basic** comes from the node closely mimicking the interface provided by SimSpark.
 Custom ROS2 interfaces are used with no attempt at converting the interfaces to those
-you would probably use to communicate with a real robot. To write a node that matches
-interfaces used by a real robot, see :doc:`rcss3d_agent`
+you would probably use to communicate with a real robot.
+
+.. image:: images/rcss3d_agent_basic_flowchart.png
+  :align: center
+
+
+.. seealso::
+
+  If you wish to publish and subscribe to topics with different interfaces, you should
+  use the rcss3d_agent library and implement the pub/sub yourself, see :doc:`rcss3d_agent`
+  for more information.
 
 Launching a Player
 ******************
@@ -24,6 +33,7 @@ Moving the simulator camera around with WASD keys and mouse,
 you should see your robot at the corner of the field, as below:
 
 .. image:: images/agent_in_simulator.png
+  :align: center
 
 Beaming the Robot
 *****************
