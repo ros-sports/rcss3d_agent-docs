@@ -145,10 +145,11 @@ The following are the four methods to effect the agent:
 
 .. code-block:: cpp
 
+  void sendBeam(const rcss3d_agent_msgs::msg::Beam & b);
   void sendHingeJointVel(const rcss3d_agent_msgs::msg::HingeJointVel & j);
   void sendUniversalJointVel(const rcss3d_agent_msgs::msg::UniversalJointVel & j);
-  void sendBeam(const rcss3d_agent_msgs::msg::Beam & b);
   void sendSay(const rcss3d_agent_msgs::msg::Say & s);
+  void sendSynchronize();
 
 Detailed explanations and usages are given below.
 
@@ -258,6 +259,27 @@ Let's take a look at an example, where we will send a message (ie. :code:`hellow
   // Send Say
   rcss3dAgent.sendSay(say);
 
+Synchronize
+-----------
+
+.. note::
+
+  This effector has no effect if simulator is running with the default real-time mode.
+
+The `Synchronize Effector`_ must be used if the simulator is running with `Agent Sync Mode`_.
+In Agent Sync Mode, agents must send a synchronize message at the end of each simulation
+cycle. Note that the server ignores this command if it is received in Real-Time Mode, so it is
+safe to configure your agent to always call the synchronize effector.
+
+To use, simply call the :code:`sendSynchronize()` method as below:
+
+.. code-block:: cpp
+
+  rcss3dAgent.sendSynchronize();
+
+When running in Agent Sync Mode, if the simulator with the agent moves forward in time,
+you are calling this effector correctly.
+
 .. _rcss3d_nao: https://github.com/ijnek/rcss3d_nao
 .. _nao_command_msgs: https://index.ros.org/p/nao_command_msgs/
 .. _nao_sensor_msgs: https://index.ros.org/p/nao_sensor_msgs/
@@ -269,3 +291,5 @@ Let's take a look at an example, where we will send a message (ie. :code:`hellow
 .. _Soccerbot: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Models#soccerbot
 .. _Say Effector: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Effectors#say-effector
 .. _Hear Perceptor: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Perceptors#hear-perceptor
+.. _Synchronize Effector: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Effectors#synchronize-effector
+.. _Agent Sync Mode: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Agent-Sync-Mode

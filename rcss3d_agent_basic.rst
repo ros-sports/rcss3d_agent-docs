@@ -122,6 +122,30 @@ In this example, we will send a msg containing the string "helloworld":
 
   ros2 topic pub --once effectors/say rcss3d_agent_msgs/msg/Say "message: 'helloworld'"
 
+Synchronize Effector
+********************
+
+The `Synchronize Effector`_ must be used if the simulator is running with `Agent Sync Mode`_.
+In Agent Sync Mode, agents must publish this message at the end of each simulation cycle.
+Note that the server ignores this command if it is received in Real-Time Mode, so it is safe to
+configure your agent to always publish this message.
+
+In the example below, we will publish a message on the :code:`effectors/synchronize` topic
+at 100Hz:
+
+.. code-block:: console
+
+  ros2 topic pub --rate 100 effectors/synchronize rcss3d_agent_msgs/msg/Synchronize
+
+We can confirm that the simulator is responding to the synchronize message by printing the publish
+rate of the :code:`/percept` topic with:
+
+.. code-block:: console
+
+  ros2 topic hz percept
+
+The average rate should be close to the rate at we are sending our synchronize effector (ie. 100Hz).
+
 Topics
 ******
 
@@ -139,6 +163,7 @@ Subscribed Topics
 * **effectors/hinge_joint** (*rcss3d_agent_msgs/msg/HingeJointVel*)
 * **effectors/say** (*rcss3d_agent_msgs/msg/Say*)
 * **effectors/universal_joint** (*rcss3d_agent_msgs/msg/UniversalJointVel*)
+* **effectors/synchronize** (*rcss3d_agent_msgs/msg/Synchronize*)
 
 Parameters
 **********
@@ -171,3 +196,5 @@ List of parameters for the node.
 .. _Soccerbot: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Models#soccerbot
 .. _Say Effector: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Effectors#say-effector
 .. _Hear Perceptor: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Perceptors#hear-perceptor
+.. _Synchronize Effector: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Effectors#synchronize-effector
+.. _Agent Sync Mode: https://gitlab.com/robocup-sim/SimSpark/-/wikis/Agent-Sync-Mode
