@@ -19,7 +19,8 @@ as following:
 
 .. code-block:: console
   
-  sudo apt update && sudo apt install ros-rolling-rcss3d-agent-basic
+  sudo apt update
+  sudo apt install ros-${ROS_DISTRO}-rcss3d-agent-basic
 
 If this method does not work for your platform, perform the `Source Installation`_ instead.
 
