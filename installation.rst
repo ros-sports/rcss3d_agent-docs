@@ -9,10 +9,7 @@ To install the packages, do one of the following:
 Binary Installation
 *******************
 
-.. warning::
-
-  The binary installation is not available yet. This warning will be removed when the
-  upcoming binary installation becomes available.
+Binary installation is available for ROS2 Galactic. It will not be available for ROS2 Foxy, and is not available for ROS2 Rolling yet.
 
 Rcss3d Agent is released to the ROS ecosystem. You can install the debian packages using apt
 as following:
