@@ -9,7 +9,7 @@ To install the packages, do one of the following:
 Binary Installation
 *******************
 
-Binary installation is available for ROS2 Galactic. It will not be available for ROS2 Foxy, and is not available for ROS2 Rolling yet.
+Binary installation is available for ROS2 Galactic onwards.
 
 Rcss3d Agent is released to the ROS ecosystem. You can install the debian packages using apt
 as following:
@@ -25,7 +25,7 @@ Source Installation
 *******************
 
 Source installation should work for almost any platform that has ROS2 installed on it.
-ROS2 Foxy onwards is supported. There is no alternative for ROS1 distros or older ROS2 distros.
+ROS2 Galactic onwards is supported. There is no alternative for ROS1 distros or older ROS2 distros.
 
 From within a ROS2 workspace, run the following code that clones Rcss3d Agent into your
 src directory, and builds your workspace:
