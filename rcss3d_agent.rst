@@ -1,7 +1,7 @@
 Rcss3d Agent
 ############
 
-Rcss3d Agent is a general ROS2 library that handles the network connection and parsing/packing
+Rcss3d Agent is a general ROS2 C++ library that handles the network connection and parsing/packing
 of data from/to the format that the simulator understands (s-expressions).
 
 Introduction
@@ -10,7 +10,7 @@ Introduction
 For 3D simulation teams, the provided Rcss3d Agent Basic node which is built on top of
 the Rcss3d Agent library is likely all that is needed.
 Teams from other leagues such as the humanoid league or SPL, can use the general
-library and provide their own pub/sub implementations to match those used on their robots. 
+library and provide their own pub/sub implementations to match those used on their robots.
 
 An example usage of this library is in the `rcss3d_nao`_ package that
 publishes/subscribes using interfaces specific to the Nao (`nao_command_msgs`_ and
@@ -26,11 +26,10 @@ For example, a physical Nao robot accepts joint position commands, but the simul
 velocity commands. Rcss3d Nao implements a joint velocity controller to convert the requested
 joint position to a joint velocity that the simulator accepts.
 
-Add as dependency
-*****************
+Usage
+*****
 
-To use the library in your project, you must declare it as a dependency in your package, as
-following:
+To use this package in your ament project, you must declare it as a dependency in your package, as following:
 
 .. code-block:: cpp
 
@@ -40,6 +39,13 @@ following:
   // In your CMakeLists.txt
   find_package(rcss3d_agent REQUIRED)
   ament_target_dependencies(your_target rcss3d_agent)
+
+
+To use the package in a C++ file, simply include the following header file:
+
+.. code-block:: cpp
+
+  #include "rcss3d_agent/rcss3d_agent.hpp"
 
 API
 ***
@@ -62,7 +68,7 @@ is given below:
   int rcss3d_port = 3100;                     // Port of Simulation Server (default: 3100)
   std::string team = "ROS Sports";            // Team name
   int unum = 3;                               // Player number
-  
+
   // Construct rcss3d_agent::Params
   rcss3d_agent::Params params{model, rcss3d_host, rcss3d_port, team, unum};
 
@@ -73,8 +79,8 @@ The agent is connected to the simulator through localhost(:code:`127.0.0.1`) on 
 default.
 
 .. important::
-  
-  :code:`params` **must outlive** :code:`rcss3dAgent`, or 
+
+  :code:`params` **must outlive** :code:`rcss3dAgent`, or
   :code:`rcss3dAgent` will have a dangling reference to the :code:`params` object which
   will cause undefined behaviour.
 
@@ -97,7 +103,7 @@ Your callback function must accept a
 
   // A callback definition somewhere
   void perceptCallback(const rcss3d_agent_msgs::msg::Percept & percept);
-  
+
   // Registering the callback
   rcss3dAgent.registerPerceptCallback(perceptCallback);
 
@@ -245,7 +251,7 @@ Say
 ---
 
 The `Say Effector`_ permits communication among agents by broadcasting messages. Be sure to read
-about this effector's dual, the `Hear Perceptor`_, as it details restrictions upon what message 
+about this effector's dual, the `Hear Perceptor`_, as it details restrictions upon what message
 content may be sent, and under what circumstances other agents will actually hear your messages.
 
 Let's take a look at an example, where we will send a message (ie. :code:`helloworld`) to teammates:

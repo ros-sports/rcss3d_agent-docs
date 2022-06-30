@@ -9,7 +9,7 @@ Rcss3d Agent
 .. image:: images/demo_effector.gif
 
 Rcss3d Agent is a ROS2 package that handles the network connection and parsing/packing of
-data with the SimSpark simulator used in the RoboCup 3D Simulation League. 
+data with the SimSpark simulator used in the RoboCup 3D Simulation League.
 
 The project is hosted on `Github`_ by ROS Sports.
 
@@ -20,5 +20,6 @@ The project is hosted on `Github`_ by ROS Sports.
    installation
    rcss3d_agent_basic
    rcss3d_agent
+   rcss3d_agent_msgs_to_soccer_interfaces
 
 .. _Github: https://github.com/ros-sports/rcss3d_agent
