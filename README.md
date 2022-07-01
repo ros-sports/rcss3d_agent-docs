@@ -8,7 +8,7 @@ See the compiled instructions on our [Website](https://rcss3d-agent.readthedocs.
 Below is a guide for the maintainers of this documentation.
 
 ### Installing Dependencies
-`sudo apt install python3-sphinx-rtd-theme`
+`pip3 install -r requirements.txt`
 
 ### Compiling
 To compile locally, run `make html` in the root directory. 
