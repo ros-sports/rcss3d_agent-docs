@@ -93,11 +93,17 @@ Robots
 .. code-block:: cpp
 
   soccer_vision_3d_msgs::msg::RobotArray getRobotArray(
-    const std::vector<rcss3d_agent_msgs::msg::Player> & players);
+    const std::vector<rcss3d_agent_msgs::msg::Player> & players,
+    std::string nameTeamOwn = "");
 
 Converts a vector of player messages to a robot array message.
 Only acknowledges a player as a robot if the head of the player was detected.
 Players with only other body parts reported will be ignored, simply because it is difficult to determine the position of the robot when the head is not detected.
+
+Simulation reports the team name of observed players.
+Comparing the team name against the ``nameTeamOwn`` parameter will determine if the player is on the agent's team.
+If the player is on the agent's team, the ``attributes.team`` field of the Robot in the RobotArray will be set to ``TEAM_OWN``, and otherwise set to ``TEAM_OPPONENT``.
+If the parameter is left as the default empty string (""), the ``attributes.team`` field would be set to ``TEAM_UNKNOWN``.
 
 Similar to the goalpost, an approximate center of the robot is estimated by first converting spherical to cartesian coordinates, then subtracting half the height of the robot from the z coordinate.
 
